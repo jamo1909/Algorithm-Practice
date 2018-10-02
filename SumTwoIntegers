@@ -1,0 +1,61 @@
+import java.util.*;
+public class SumTwoIntegers {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner (System.in);
+		
+		System.out.println("Enter your target number");
+		int target = scan.nextInt();
+		
+		System.out.println("Enter size of Array");
+		int size = scan.nextInt();
+		
+		System.out.println("Enter numbers into Array");
+		int arr[] = new int [size];
+		for(int i=0; i <size; i++)
+		{
+			arr[i] = scan.nextInt();
+		}
+
+		int ans[] = new int[2];
+		ans = merged(arr, target);
+		
+		if(ans[0] + ans[1] == 0)
+		{
+			System.out.println("Does not contain at integers add to equal: " + target);
+		}else{
+			System.out.println(ans[0] + " + " + ans[1] +" = " + target);
+		}
+	}
+	
+	public static int[] merged(int[] num, int target)
+	{
+		int test[] = new int [num.length];
+		int ans[] = new int [2];
+		
+		for(int i=0; i <num.length; i++)
+		{
+			test[i] = num[i];
+		}
+			
+		for(int x=0; x<num.length;x++)
+		{
+			for(int y=0; y<num.length;y++)
+			{
+				if( x ==y)
+				{
+					
+				}else{
+					if(num[x] + test[y] == target)
+					{
+						ans[0] = num[x];
+						ans[1] = test[y];
+					}
+				}
+			}
+		}
+		
+		return ans;
+	}
+
+}
